@@ -1,5 +1,5 @@
 let apiKey = "295d9b8a41bf489a9987d980ee8260a4"
-let client_id = 26962
+let client_id = "26962"
 
 // let xhr = new XMLHttpRequest();
 // xhr.open("GET", "https://www.bungie.net/platform/Destiny2/Manifest/InventoryItem/1274330687/", true)
