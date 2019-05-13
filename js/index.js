@@ -69,18 +69,20 @@ if (urlPieces.length > 1) //then we have extra paramaters and should have an aut
 
 // xhr4tkn.send();
 
-let bnetUrl = "https://www.bungie.net/Platform/App/OAuth/Token/?client_id="+client_id+"&grant_type=authorization_code&code="+authCode
+let bnetUrl = "https://www.bungie.net/Platform/App/OAuth/Token/"
 
 let options =()=>{
     return{
         method: "POST",
         headers:{
-            'X-API-Key': apiKey,
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Origin': 'https://matthillprogramdeveloper.github.io'
         },
         body:{
-            grant_type: 'authorization_code',
-            client_id: client_id
+            'grant_type': 'authorization_code',
+            'client_id': client_id,
+            'code':authCode
         }
     }
 }
