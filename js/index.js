@@ -27,8 +27,7 @@ if (urlPieces.length > 1) //then we have extra paramaters and should have an aut
 
 let bnetUrl = "https://www.bungie.net/Platform/App/OAuth/Token/"
 
-let options =()=>{
-    return{
+let options = {
         method: "POST",
         headers:{
             'X-API-KEY':apiKey,
@@ -36,14 +35,10 @@ let options =()=>{
             'Content-Type': 'application/x-www-form-urlencoded',
             'Origin': 'https://matthillprogramdeveloper.github.io'
         },
-        body:JSON.stringify({
-            grant_type: 'authorization_code',
-            client_id: client_id,
-            code: authCode
-        })
+        body:'grant_type=authorization_code&code='+authCode+'&client_id=26962'
     }
-}
 
-fetch(bnetUrl,options()).then(response=>{
+
+fetch(bnetUrl,options).then(response=>{
     console.log(response)
 })
