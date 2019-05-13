@@ -80,10 +80,10 @@ let options =()=>{
             'Content-Type': 'application/x-www-form-urlencoded',
             'Origin': 'https://matthillprogramdeveloper.github.io'
         },
-        body:JSON.stringify({
-            'grant_type': 'authorization_code',
-            'client_id': client_id,
-            'code':authCode
+        body:JSON.parse({
+            grant_type: 'authorization_code',
+            client_id: client_id,
+            code: authCode
         })
     }
 }
