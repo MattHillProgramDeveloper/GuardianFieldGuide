@@ -53,16 +53,38 @@ if (urlPieces.length > 1) //then we have extra paramaters and should have an aut
     })
 }
 
-let xhr4tkn = new XMLHttpRequest();
-xhr4tkn.open("post", "https://www.bungie.net/Platform/App/OAuth/Token/?client_id="+client_id+"&grant_type=authorization_code&code="+authCode+" HTTP/1.1", true)
-xhr4tkn.setRequestHeader("X-API-Key", apiKey)
-xhr4tkn.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+// let xhr4tkn = new XMLHttpRequest();
+// xhr4tkn.open("post", "https://www.bungie.net/Platform/App/OAuth/Token/?client_id="+client_id+"&grant_type=authorization_code&code="+authCode, true)
+// xhr4tkn.setRequestHeader("X-API-Key", apiKey)
+// xhr4tkn.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
 
-xhr4tkn.onreadystatechange = function(){
- if(this.readyState === 4 && this.status === 200){
-  let json = JSON.parse(this.responseText);
-  console.log(json.Response.data.inventoryItem.itemName); //Gjallarhorn
- }
+// xhr4tkn.onreadystatechange = function(){
+//  if(this.readyState === 4 && this.status === 200){
+//   let json = JSON.parse(this.responseText);
+//   console.log(json.Response);
+//  }else{
+//      console.log(e)
+//  }
+// }
+
+// xhr4tkn.send();
+
+let bnetUrl = "https://www.bungie.net/Platform/App/OAuth/Token/?client_id="+client_id+"&grant_type=authorization_code&code="+authCode
+
+let options =()=>{
+    return{
+        method: "POST",
+        headers:{
+            'X-API-Key': apiKey,
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body:{
+            grant_type: 'authorization_code',
+            client_id: client_id
+        }
+    }
 }
 
-xhr4tkn.send();
+fetch(bnetUrl,options()).then(response=>{
+    console.log(response)
+})
