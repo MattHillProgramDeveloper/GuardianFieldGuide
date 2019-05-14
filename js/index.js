@@ -41,5 +41,8 @@ let options = {
 let answer 
 
 fetch(bnetUrl,options).then(function(response){
-    console.log(response.json())
+    return(response.json())
+})
+.then(function(jsonresponse){
+    console.log(jsonresponse)
 })
