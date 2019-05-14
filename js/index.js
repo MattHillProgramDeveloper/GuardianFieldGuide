@@ -38,6 +38,10 @@ let options = {
         body:'grant_type=authorization_code&code='+authCode+'&client_id=26962'
     }
 
-let answer = fetch(bnetUrl,options).then(function(response){
-    return response.json()
+let answer 
+
+fetch(bnetUrl,options).then(function(response){
+    answer = response.json()
+    console.log(answer)
+    return answer
 })
