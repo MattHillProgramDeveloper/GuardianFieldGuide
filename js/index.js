@@ -45,4 +45,6 @@ fetch(bnetUrl,options).then(function(response){
 })
 .then(function(jsonresponse){
     console.log(jsonresponse)
+    localStorage.setItem('bNetToken',jsonresponse.access_token)
+    console.log(localStorage.getItem(bNetToken))
 })
