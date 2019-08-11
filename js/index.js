@@ -53,9 +53,36 @@ fetch(bnetUrl,options).then(function(response){
 
 })
 
-
 }
 
 
+let options = {
+    method: "GET",
+    headers:{
+        'X-API-KEY':apiKey,
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Origin': 'https://matthillprogramdeveloper.github.io'
+    }//,
+    //body:'grant_type=authorization_code&code='+authCode+'&client_id=26962'
+}
+
+
+
+
+function getItems(){
+
+    fetch("http://www.bungie.net/d1/Platform/Destiny/Explorer/Items/",options).then(function(response){
+        return(response.json())
+    })
+    .then(function(jsonresponse){
+        console.log(jsonresponse)
+        localStorage.setItem('bNetToken',jsonresponse.access_token)
+        console.log(localStorage.getItem('bNetToken'))
+
+    })
+
+
+}
 
 
