@@ -56,7 +56,7 @@ fetch(bnetUrl,options).then(function(response){
 }
 
 
-let options = {
+let options2 = {
     method: "GET",
     headers:{
         'X-API-KEY':apiKey,
@@ -72,7 +72,7 @@ let options = {
 
 function getItems(){
 
-    fetch("http://www.bungie.net/d1/Platform/Destiny/Explorer/Items/",options).then(function(response){
+    fetch("http://www.bungie.net/d1/Platform/Destiny/Explorer/Items/",options2).then(function(response){
         return(response.json())
     })
     .then(function(jsonresponse){
