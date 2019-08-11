@@ -40,6 +40,9 @@ let options = {
 
 let answer 
 
+
+function getToken(){
+
 fetch(bnetUrl,options).then(function(response){
     return(response.json())
 })
@@ -47,4 +50,12 @@ fetch(bnetUrl,options).then(function(response){
     console.log(jsonresponse)
     localStorage.setItem('bNetToken',jsonresponse.access_token)
     console.log(localStorage.getItem('bNetToken'))
+
 })
+
+
+}
+
+
+
+
